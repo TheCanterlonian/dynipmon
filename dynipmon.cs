@@ -14,12 +14,11 @@ namespace dynipmon
 	{
 		static void Main(string[] args)
 		{
-			//Ensure the log file
-			fileInsurance("./dim.log");
-			//Ensure the config file
-			bool configExisted=fileInsurance("./dynipmon.cfg");
-			//see if it didn't exist and if not then try to initialize the file
-			if (!(configExisted))
+			fileInsurance("./dim.log"); //Ensure the log file
+			bool configExisted=fileInsurance("./dynipmon.cfg"); //Ensure the config file
+			//initialize function-wide variables
+			string currentFile = "./dim.log"
+			if (!(configExisted)) //see if it didn't exist and if not then try to initialize the file
 			{
 				try
 				{
@@ -37,10 +36,13 @@ namespace dynipmon
 				{
 					Console.WriteLine("Specific permissions error.");
 				}
+				//no matter what happens, don't exit the block without doing this
+				currentFile = ReadAllText("./dynipmon.cfg");
 			}
 			else //otherwise just load from the file
 			{
-				string currentFile = ReadAllText("./dynipmon.cfg");
+				//no matter what happens, don't exit the block without doing this
+				currentFile = ReadAllText("./dynipmon.cfg");
 			}
 		}
 		//checks if a file exists and if it doesn't, creates the file so it does exist
