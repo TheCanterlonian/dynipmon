@@ -38,6 +38,10 @@ namespace dynipmon
 					Console.WriteLine("Specific permissions error.");
 				}
 			}
+			else //otherwise just load from the file
+			{
+				currentFile = ReadAllText("./dynipmon.cfg");
+			}
 		}
 		//checks if a file exists and if it doesn't, creates the file so it does exist
 		static bool fileInsurance(string fileToEnsure) //returns True if file exists, False if file created
