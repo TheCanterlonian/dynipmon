@@ -40,7 +40,7 @@ namespace dynipmon
 			}
 			else //otherwise just load from the file
 			{
-				currentFile = ReadAllText("./dynipmon.cfg");
+				string currentFile = ReadAllText("./dynipmon.cfg");
 			}
 		}
 		//checks if a file exists and if it doesn't, creates the file so it does exist
