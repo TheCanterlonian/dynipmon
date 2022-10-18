@@ -14,18 +14,40 @@ namespace dynipmon
 	{
 		static void Main(string[] args)
 		{
-			//check the log file exists and if not, create it
-			//
+			//Ensure the log file
+			fileInsurance("./dim.log");
+			//Ensure the config file
+			bool configExisted=fileInsurance("./dynipmon.cfg");
+			//see if it didn't exist and if not then try to initialize the file
+			if (!(configExisted))
+			{
+				try
+				{
+					WriteAllText("./dynipmon.cfg", "./public-ip.txt");
+				}
+				catch (IOException e)
+				{
+					Console.WriteLine("General input/output error.");
+				}
+				catch (UnauthorizedAccessException e)
+				{
+					Console.WriteLine("General permissions error.");
+				}
+				catch (SecurityException e)
+				{
+					Console.WriteLine("Specific permissions error.");
+				}
+			}
 		}
 		//checks if a file exists and if it doesn't, creates the file so it does exist
-		static bool fileInsurance(string fileToEnsure) //returns 1 if file exists, 0 if file created
+		static bool fileInsurance(string fileToEnsure) //returns True if file exists, False if file created
 		{
 			if (!(File.Exists(fileToEnsure)))
 			{
 				File.Create(fileToEnsure);
-				return 0;
+				return False;
 			}
-			return 1;
+			return True;
 		}
 	}
 }
