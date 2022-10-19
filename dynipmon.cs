@@ -54,6 +54,27 @@ namespace dynipmon
 				//start the two async tasks for checking & recording the IP address and waiting for input & interupting the program tasks
 			}
 		}
+		//the async method for checking the ip and sending it directly to stdout
+		async Task checkAndSkipAsync()
+		{
+			string ip = checkIP(); //gets the ip
+			Console.Out.WriteLine(ip); //writes to standard output
+			breakTime(); //takes a break
+		}
+		//the async method for checking the ip and recording it in the ip file
+		async Task checkAndLogAsync(string ipFile, string logFile)
+		{
+			string ipNew = checkIP(); //gets new ip
+			string ipContent = File.ReadAllText(ipFile); //checks recorded ip
+			if (!(ipNew == ipContent)) //checks if they're not identical
+			{
+				//meat & potatoes block
+				appendFile(logFile, "IP changed from: " + ipContent + "\n");
+				appendFile(logFile, "New IP is now: " + ipNew + "\n");
+				overwriteFile(ipFile, ipNew);
+			}
+			breakTime(); //takes a break
+		}
 		//checks if a file exists and if it doesn't, creates the file so it does exist
 		static bool fileInsurance(string fileToEnsure) //returns True if file exists, False if file created
 		{
@@ -91,6 +112,15 @@ namespace dynipmon
 				currentAddress = currentAddress.Substring(first, last - first);
 			}
 			return currentAddress;
+		}
+		static void breakTime() //lets the program relax for a predetermined amount of time
+		{
+			/*
+			waits for a predetermined amount of miliseconds
+			60000 milis is 1 minute (for normal operating)
+			3600000 milis is 1 hour (for debugging)
+			*/
+			Thread.Sleep(3600000);
 		}
 	}
 }
