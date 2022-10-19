@@ -14,6 +14,7 @@ namespace dynipmon
 	{
 		static void Main(string[] args)
 		{
+			Console.WriteLine("Dynipmon starting...");
 			if (!(args.Length == 0)) //checks if any arguments were used
 			{
 				//makes all arguments lowercase
