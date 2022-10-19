@@ -17,3 +17,5 @@ past ip addresses will also be logged in ./dim.log
 
 dynipmon will append the contents of the public-ip file to the log before overwrite occurs
 
+you can use the "skip logging" option with -s to redirect the ip address to standard output instead of recording it to a file
+
