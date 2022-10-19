@@ -1,7 +1,7 @@
 # dynipmon
 ip address monitor for dynamic addresses
 
-dynipmon checks once every 10 minutes to find out what the public ip address is for the system it's running on
+dynipmon checks once every 5 minutes to find out what the public ip address is for the system it's running on
 
 it then overwrites the public ip to a file specified in the config file ./dynipmon.cfg
 
