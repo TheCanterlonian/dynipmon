@@ -73,5 +73,10 @@ namespace dynipmon
 		{
 			//
 		}
+		//checks to see what the ip address is
+		static string checkIP() //returns current IP address
+		{
+			//
+		}
 	}
 }
