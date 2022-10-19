@@ -68,7 +68,7 @@ namespace dynipmon
 		{
 			//
 		}
-		//appends a file with new content to be added, also handles errors associated with concatenation
+		//appends a file with new content to be added, also handles errors associated with file concatenation
 		static bool appendFile(string file, string content) //returns True if overwrite succeeds, False if it fails
 		{
 			//
@@ -76,7 +76,20 @@ namespace dynipmon
 		//checks to see what the ip address is
 		static string checkIP() //returns current IP address
 		{
-			//
+			string currentAddress = "";
+			WebRequest request = WebRequest.Create("http://checkip.dyndns.org/");
+			using (WebResponse response = request.GetResponse())
+			{
+				using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+				{
+					currentAddress = stream.ReadToEnd();
+					stream.Close();
+				}
+				int first = currentAddress.IndexOf("Address: ") + 9;
+				int last = currentAddress.LastIndexOf("</body>");
+				currentAddress = currentAddress.Substring(first, last - first);
+			}
+			return currentAddress;
 		}
 	}
 }
