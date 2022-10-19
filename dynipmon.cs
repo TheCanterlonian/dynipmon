@@ -22,7 +22,7 @@ namespace dynipmon
 					args[i] = args[i].ToLower();
 				}
 				//checks if "skip logging" option was passed
-				if (args.Contains("-s"))
+				if (args.Contains("s"))
 				{
 					//start the async task for checking the IP address and sending it to standard output
 				}
