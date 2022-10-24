@@ -120,7 +120,7 @@ namespace dynipmon
 			//
 		}
 		//appends a file with new content to be added, also handles errors associated with file concatenation
-		static bool appendFile(string file, string content) //returns True if overwrite succeeds, False if it fails
+		static bool appendFile(string file, string content) //returns True if addition succeeds, False if it fails
 		{
 			//
 		}
