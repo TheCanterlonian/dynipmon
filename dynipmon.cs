@@ -26,6 +26,7 @@ namespace dynipmon
 				if (args.Contains("s"))
 				{
 					//start the async task for checking the IP address and sending it to standard output
+					//
 				}
 			}
 			else
@@ -52,7 +53,13 @@ namespace dynipmon
 				string recordedIP = File.ReadAllText(currentFile);
 				appendFile(logFile, "Initially recorded IP was: " + recordedIP + "\n");
 				//start the two async tasks for checking & recording the IP address and waiting for input & interupting the program tasks
+				//
 			}
+		}
+		//User Interactive Prompt
+		static void userPrompt()
+		{
+			//
 		}
 		//the async method for checking the ip and sending it directly to stdout
 		async Task checkAndSkipAsync()
