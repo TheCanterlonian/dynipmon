@@ -117,12 +117,12 @@ namespace dynipmon
 		//overwrites a file in entirety, also handles errors associated with file overwrites
 		static bool overwriteFile(string file, string text) //returns True if overwrite succeeds, False if it fails
 		{
-			//
+			//TODO:
 		}
 		//appends a file with new content to be added, also handles errors associated with file concatenation
 		static bool appendFile(string file, string content) //returns True if addition succeeds, False if it fails
 		{
-			//
+			//TODO:
 		}
 		//checks to see what the ip address is
 		static string checkIP() //returns current IP address
