@@ -68,7 +68,7 @@ namespace dynipmon
 		{
 			while (True)
 			{
-				Console.WriteLine("Dynipmon: ");
+				Console.WriteLine("\nDynipmon: ");
 				string userInput = Console.ReadLine(); //grabs user input
 				userInput = userInput.ToLower(); //makes the input lowercase
 				if (userInput == ("quit"))
