@@ -19,3 +19,5 @@ dynipmon will append the contents of the public-ip file to the log before overwr
 
 you can use the "skip logging" option with the argument 's' to redirect the ip address to standard output instead of recording it to a file
 
+you can use the "only once" option with the argument 'o' to redirect the ip address to standard output instead of recording it to a file while also only performing the check one time instead of checking repeatedly (this option is intended for data pipelines)
+
