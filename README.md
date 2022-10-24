@@ -1,4 +1,6 @@
 # dynipmon
+pronounced /die-nip-mawn/
+
 ip address monitor for dynamic addresses
 
 dynipmon checks once every minute to find out what the public ip address is for the system it's running on
