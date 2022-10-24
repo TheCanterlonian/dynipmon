@@ -26,7 +26,13 @@ namespace dynipmon
 				if (args.Contains("s"))
 				{
 					//start the async task for checking the IP address and sending it to standard output
-					//
+					await checkAndSkipAsync(); //don't start the interactive prompt
+				}
+				//checks if the "only once" option was passed
+				if (args.Contains("o"))
+				{
+					//checks once and writes to standard output
+					checkOnceLinear(); //don't start the interactive prompt
 				}
 			}
 			else
@@ -54,12 +60,19 @@ namespace dynipmon
 				appendFile(logFile, "Initially recorded IP was: " + recordedIP + "\n");
 				//start the two async tasks for checking & recording the IP address and waiting for input & interupting the program tasks
 				//
+				userPrompt(); //start the user interactive prompt
 			}
 		}
 		//User Interactive Prompt
 		static void userPrompt()
 		{
 			//
+		}
+		//linear method for checking the ip and sending it directly to stdout only one time without waiting
+		static void checkOnceLinear()
+		{
+			string ipCurrent = checkIP(); //gets the current ip
+			Console.Out.WriteLine(ipCurrent); //writes to standard output
 		}
 		//the async method for checking the ip and sending it directly to stdout
 		async Task checkAndSkipAsync()
