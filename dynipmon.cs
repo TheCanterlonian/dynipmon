@@ -144,12 +144,8 @@ namespace dynipmon
 		}
 		static void breakTime() //lets the program relax for a predetermined amount of time
 		{
-			/*
-			waits for a predetermined amount of miliseconds
-			60000 milis is 1 minute (for normal operating)
-			3600000 milis is 1 hour (for debugging)
-			*/
-			Thread.Sleep(3600000);
+			//waits for a predetermined amount of miliseconds
+			Thread.Sleep(1000*60*60);
 		}
 	}
 }
